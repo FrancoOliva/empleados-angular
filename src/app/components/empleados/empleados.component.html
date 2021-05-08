@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Listado de Empleados</span>
+            <button class="btn btn-dark btn-lg float-right" routerLink="/crear-empleados">Agregar</button>
+            <h5 *ngIf="empleados.length == 0" class="mt-2">No hay datos para mostrar</h5>
+            <!--TABLA-->
+            <table class="table table-striped mt-5" *ngIf="empleados.length > 0">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Documento</th>
+                    <th>Salario</th>
+                    <!-- <th> 
+                      <i class="fas fa-user-edit fa-edit fa-lg text-info mr-2"></i> 
+                      <i class="fas fa-trash-alt fa-trash fa-lg text-danger"></i>
+                    </th>  -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let empleado of empleados">
+                    <td> {{empleado.nombre}} </td>
+                    <td>{{empleado.apellido}}</td>
+                    <td>{{empleado.documento}}</td>
+                    <td>{{empleado.salario | currency}}</td>
+                    <th>                                                        <!-- una forma de pasar datos entre componentes-->
+                      <i class="fas fa-user-edit fa-edit fa-lg text-info mr-2" [routerLink]="['/editar-empleados/', empleado.id]"></i> <!--editar-->
+                      <i class="fas fa-trash-alt fa-trash fa-lg text-danger" (click)="eliminarEmpleado(empleado.id)"></i> <!--eliminar-->
+                    </th> 
+                  </tr>                            
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

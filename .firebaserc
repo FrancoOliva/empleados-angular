@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "empleados-angular-70e53": {
+      "hosting": {
+        "empleados": [
+          "empleados-angular-70e53"
+        ]
+      }
+    }
+  }
+}
